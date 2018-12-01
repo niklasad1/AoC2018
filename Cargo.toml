@@ -1,0 +1,15 @@
+[package]
+name = "aoc-2018"
+version = "0.1.0"
+authors = ["Niklas Adolfsson <niklasadolfsson1@gmail.com>"]
+edition = "2018"
+description = "Advent of Code 2018"
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.2"
+
+[[bench]]
+name = "bench"
+harness = false
