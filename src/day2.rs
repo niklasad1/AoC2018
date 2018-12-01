@@ -1,4 +1,4 @@
-use super::{Output, parse_input};
+use super::{parse_input, Output};
 
 const INPUT: &str = "dayx";
 type Counter = isize;

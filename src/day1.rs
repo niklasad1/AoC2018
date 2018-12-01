@@ -1,5 +1,5 @@
+use super::{parse_input, Output};
 use std::collections::HashSet;
-use super::{Output, parse_input};
 
 const INPUT: &str = "day1.txt";
 type Counter = isize;
@@ -9,7 +9,10 @@ pub fn run() -> Output<Counter> {
         .lines()
         .map(|line| line.parse().expect("well-formed integers"))
         .collect();
-    Output { a: part_a(&input), b: part_b(&input) }
+    Output {
+        a: part_a(&input),
+        b: part_b(&input),
+    }
 }
 
 fn part_a(numbers: &[Counter]) -> Counter {
