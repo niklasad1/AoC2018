@@ -20,16 +20,15 @@ fn part_a(numbers: &[Counter]) -> Counter {
 }
 
 fn part_b(numbers: &[Counter]) -> Counter {
-    let mut history = HashSet::new();
-    history.insert(0);
-
     let mut current = 0;
+    let mut seen = HashSet::new();
+    seen.insert(current);
+
     for n in numbers.iter().cycle() {
         current += n;
-        if history.contains(&current) {
+        if !seen.insert(current) {
             break;
         }
-        history.insert(current);
     }
     current
 }
