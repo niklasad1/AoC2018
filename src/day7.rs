@@ -1,9 +1,9 @@
 use super::{parse_input, Output};
 
-const INPUT: &str = "dayx";
+const INPUT: &str = "day7.txt";
 type Counter = isize;
 
-pub fn run() -> Output<Counter> {
+pub fn run() -> Output<Counter, Counter> {
     unimplemented!()
 }
 

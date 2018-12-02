@@ -4,7 +4,7 @@ use std::collections::HashSet;
 const INPUT: &str = "day1.txt";
 type Counter = isize;
 
-pub fn run() -> Output<Counter> {
+pub fn run() -> Output<Counter, Counter> {
     let input: Vec<Counter> = parse_input(INPUT)
         .lines()
         .map(|line| line.parse().expect("well-formed integers"))

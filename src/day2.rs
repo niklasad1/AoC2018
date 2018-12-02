@@ -5,10 +5,7 @@ use std::collections::{HashMap, HashSet};
 const INPUT: &str = "day2.txt";
 
 pub fn run() -> Output<usize, String> {
-    let input: Vec<String> = parse_input(INPUT)
-        .lines()
-        .map(Into::into)
-        .collect();
+    let input: Vec<String> = parse_input(INPUT).lines().map(Into::into).collect();
     Output {
         a: part_a(&input),
         b: part_b(&input),
@@ -20,7 +17,6 @@ fn increment_if_exist(val: usize, lookup: &HashMap<char, usize>) -> usize {
 }
 
 pub fn part_a(input: &[String]) -> usize {
-
     let (two, three) = input.iter().fold((0, 0), |(two, three), word| {
         let mut lookup_table = HashMap::new();
         for ch in word.chars() {
@@ -41,16 +37,29 @@ pub fn part_b(input: &[String]) -> String {
         //
         // NOTE: we could collect this into a `String` directly here but would allocate
         // a String for every iteration with is slow                             )
-        let diff = str1.chars().zip(str2.chars()).fold(0, |diff, (str1, str2)| {
-            if str1 == str2 { diff } else { diff + 1 }
-        });
+        let diff =
+            str1.chars().zip(str2.chars()).fold(
+                0,
+                |diff, (str1, str2)| {
+                    if str1 == str2 {
+                        diff
+                    } else {
+                        diff + 1
+                    }
+                },
+            );
 
         // Construct and return a new string, O(n) + allocation
         //
         // NOTE: we could also return the `idx` to the character to remove in the String from
         // `fold` above but `String::remove` is O(n) + allocation for `cloning the old String`
         if diff == 1 {
-            return str1.chars().zip(str2.chars()).filter(|(a, b)| a == b).map(|(a, b)| a).collect()
+            return str1
+                .chars()
+                .zip(str2.chars())
+                .filter(|(a, b)| a == b)
+                .map(|(a, b)| a)
+                .collect();
         }
     }
     unreachable!("the input should have two items that differ just one; qed");
