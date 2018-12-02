@@ -6,6 +6,7 @@ edition = "2018"
 description = "Advent of Code 2018"
 
 [dependencies]
+itertools = "0.7"
 
 [dev-dependencies]
 criterion = "0.2"

@@ -1,5 +1,7 @@
 #![allow(unused)]
 
+extern crate itertools;
+
 pub mod day1;
 pub mod day10;
 pub mod day11;
@@ -29,9 +31,9 @@ use std::fs::File;
 use std::io::{BufReader, Read};
 
 #[derive(Debug)]
-pub struct Output<T> {
-    a: T,
-    b: T,
+pub struct Output<A, B> {
+    a: A,
+    b: B,
 }
 
 pub fn parse_input(input: &str) -> String {
