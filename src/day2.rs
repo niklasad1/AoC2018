@@ -1,8 +1,8 @@
 use super::{parse_input, Output};
 use itertools::Itertools;
-use std::collections::{HashMap, HashSet};
 
 const INPUT: &str = "day2.txt";
+const NUM_LOWER_ALPHA: usize = 26;
 
 pub fn run() -> Output<usize, String> {
     let input: Vec<String> = parse_input(INPUT).lines().map(Into::into).collect();
@@ -12,19 +12,20 @@ pub fn run() -> Output<usize, String> {
     }
 }
 
-fn increment_if_exist(val: usize, lookup: &HashMap<char, usize>) -> usize {
-    std::cmp::min(1, lookup.iter().filter(|(_, v)| **v == val).count())
-}
-
 pub fn part_a(input: &[String]) -> usize {
     let (two, three) = input.iter().fold((0, 0), |(two, three), word| {
-        let mut lookup_table = HashMap::new();
-        for ch in word.chars() {
-            *lookup_table.entry(ch).or_insert(0) += 1;
+        let mut lookup = [0_usize; NUM_LOWER_ALPHA];
+        for ch in word
+            .chars()
+            .filter(|ch| ch.is_ascii_alphabetic())
+            .map(|ch| ch.to_ascii_lowercase())
+        {
+            let idx = (ch as usize) - 'a' as usize;
+            // could overflow
+            lookup[idx] += 1;
         }
-        //FIXME: ideally, the values should be ordered and `binary searched`
-        let two_inc = increment_if_exist(2, &lookup_table);
-        let three_inc = increment_if_exist(3, &lookup_table);
+        let two_inc = if lookup.iter().any(|&v| v == 2) { 1 } else { 0 };
+        let three_inc = if lookup.iter().any(|&v| v == 3) { 1 } else { 0 };
         (two + two_inc, three + three_inc)
     });
 
