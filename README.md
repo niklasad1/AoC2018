@@ -1,7 +1,7 @@
 # Advent of Code 2018 
 My solutions to [Advent of Code](https://adventofcode.com/) written in Rust. 
 
-I'm not focusing special just to write some nice idiomatic that is fast.
+I'm not focusing special just to write some nice idiomatic Rust that is fast.
 
 ## How to run code
 ```bash
