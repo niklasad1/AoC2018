@@ -1,6 +1,9 @@
 #![allow(unused)]
 
 extern crate itertools;
+#[macro_use]
+extern crate lazy_static;
+extern crate regex;
 
 pub mod day1;
 pub mod day10;
@@ -30,7 +33,7 @@ pub mod day9;
 use std::fs::File;
 use std::io::{BufReader, Read};
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct Output<A, B> {
     a: A,
     b: B,
