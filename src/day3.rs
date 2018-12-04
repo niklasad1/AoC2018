@@ -1,6 +1,5 @@
 use super::{parse_input, Output};
 use regex::Regex;
-use std::collections::HashSet;
 
 lazy_static! {
     static ref RE: Regex = Regex::new(r"#(\d+) @ (\d+),(\d+): (\d+)x(\d+)").unwrap();
@@ -35,18 +34,8 @@ pub fn run() -> Output<usize, usize> {
     let mut grid = [[0_u8; 1000]; 1000];
 
     for square in squares.iter() {
-        for (row_idx, row) in grid
-            .iter_mut()
-            .enumerate()
-            .skip(square.from_top)
-            .take(square.depth)
-        {
-            for (col_idx, seen) in row
-                .iter_mut()
-                .enumerate()
-                .skip(square.from_left)
-                .take(square.width)
-            {
+        for row in grid.iter_mut().skip(square.from_top).take(square.depth) {
+            for seen in row.iter_mut().skip(square.from_left).take(square.width) {
                 *seen += 1;
             }
         }
@@ -58,7 +47,7 @@ pub fn run() -> Output<usize, usize> {
     }
 }
 
-fn part_a(mut grid: &mut [[u8; 1000]]) -> usize {
+fn part_a(grid: &mut [[u8; 1000]]) -> usize {
     grid.iter().fold(0, |acc, row| {
         let sum = row.iter().filter(|&&s| s > 1).count();
         acc + sum
