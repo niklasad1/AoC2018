@@ -59,7 +59,7 @@ pub fn part_b(input: &[String]) -> String {
                 .chars()
                 .zip(str2.chars())
                 .filter(|(a, b)| a == b)
-                .map(|(a, b)| a)
+                .map(|(a, _b)| a)
                 .collect();
         }
     }

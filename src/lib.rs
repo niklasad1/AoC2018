@@ -4,28 +4,46 @@ extern crate lazy_static;
 extern crate regex;
 
 pub mod day1;
+#[allow(unused)]
 pub mod day10;
+#[allow(unused)]
 pub mod day11;
+#[allow(unused)]
 pub mod day12;
+#[allow(unused)]
 pub mod day13;
+#[allow(unused)]
 pub mod day14;
+#[allow(unused)]
 pub mod day15;
+#[allow(unused)]
 pub mod day16;
+#[allow(unused)]
 pub mod day17;
+#[allow(unused)]
 pub mod day19;
 pub mod day2;
+#[allow(unused)]
 pub mod day20;
+#[allow(unused)]
 pub mod day21;
+#[allow(unused)]
 pub mod day22;
+#[allow(unused)]
 pub mod day23;
+#[allow(unused)]
 pub mod day24;
+#[allow(unused)]
 pub mod day25;
 pub mod day3;
 pub mod day4;
 pub mod day5;
 pub mod day6;
+#[allow(unused)]
 pub mod day7;
+#[allow(unused)]
 pub mod day8;
+#[allow(unused)]
 pub mod day9;
 
 use std::fs::File;
