@@ -99,7 +99,13 @@ mod tests {
     }
 
     #[test]
-    fn test() {
-        panic!("{:?}", run());
+    fn full() {
+        assert_eq!(
+            run(),
+            Output {
+                a: 6474,
+                b: String::from("mxhwoglxgeauywfkztndcvjqr")
+            }
+        );
     }
 }

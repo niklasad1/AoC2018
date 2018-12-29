@@ -90,6 +90,6 @@ mod tests {
 
     #[test]
     fn full() {
-        assert_eq!(run(), Output { a: 0, b: 0 });
+        assert_eq!(run(), Output { a: 111935, b: 650 });
     }
 }

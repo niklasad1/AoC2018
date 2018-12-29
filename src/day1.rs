@@ -38,7 +38,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
-        panic!("{:?}", run());
+    fn full() {
+        assert_eq!(run(), Output { a: 497, b: 558 });
     }
 }

@@ -39,7 +39,6 @@ pub mod day3;
 pub mod day4;
 pub mod day5;
 pub mod day6;
-#[allow(unused)]
 pub mod day7;
 #[allow(unused)]
 pub mod day8;
